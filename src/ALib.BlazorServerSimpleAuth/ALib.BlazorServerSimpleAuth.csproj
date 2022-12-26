@@ -4,6 +4,11 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageId>ALib.BlazorServerSimpleAuth</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>ochiai</Authors>
+		<PackageDescription>This package is simple auth on Blazor Server.</PackageDescription>
+		<RepositoryUrl>https://github.com/ochiai-naoki/ALib.BlazorSimpleAuth</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
