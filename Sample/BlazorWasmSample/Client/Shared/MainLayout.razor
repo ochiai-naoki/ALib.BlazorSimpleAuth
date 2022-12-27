@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject ALib.BlazorWasmSimpleAuth.SimpleAuthenticationStateProvider Auth
+@inject IDialogService DialogService
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -8,8 +10,11 @@
     <MudAppBar Elevation="0">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
+        @if (Auth.User != null)
+        {
+            <MudButton Color="Color.Inherit" EndIcon="@Icons.Material.Outlined.Logout" OnClick="Logout">@Auth.User?.UserName</MudButton>
+        }
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/ochiai-naoki/ALib.BlazorSimpleAuth/" Target="_blank" />
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
         <MudDrawerHeader>
@@ -30,5 +35,19 @@
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    async void Logout()
+    {
+        var result = await DialogService.ShowMessageBox(
+            "確認",
+            "ログアウトします。",
+            cancelText: "キャンセル"
+        );
+        if (result == true)
+        {
+            await Auth.LogoutAsync();
+        }
+        StateHasChanged();
     }
 }

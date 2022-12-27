@@ -1,0 +1,71 @@
+﻿@page "/login"
+@layout LoginLayout
+@attribute [AllowAnonymous]
+@using System.ComponentModel.DataAnnotations
+@using ALib.BlazorWasmSimpleAuth
+@inject SimpleAuthenticationStateProvider  Auth
+@inject NavigationManager Navigation
+
+<EditForm Model="_user" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudCard>
+        <MudCardContent>
+            <MudStack>
+                <MudTextField Label="ユーザーID" @bind-Value="_user.UserId" For="@(() => _user.UserId)" />
+                <MudTextField Label="パスワード" @bind-Value="_user.Password" For="@(() => _user.Password)" InputType="InputType.Password" />
+                @if (!string.IsNullOrEmpty(_message))
+                {
+                    <MudAlert Severity="Severity.Error">@_message</MudAlert>
+                }
+            </MudStack>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit">ログイン</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+
+<MudAlert Class="mt-8">
+    <MudText>ユーザーID: 'a' ... Admin (Counter ページでリセットが可能)</MudText>
+    <MudText>ユーザーID: 'b' ... Guest</MudText>
+    <MudText Color="Color.Secondary">パスワードは何でもOK</MudText>
+</MudAlert>
+
+@code {
+    LoginUserModel _user = new();
+    string? _message;
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        _message = null;
+        var user = _user.UserId switch
+        {
+            "a" => new LoginUser
+                {
+                    UserId = "a",
+                    UserName = "アドミン",
+                    Roles = new[] { "Admin" }
+                },
+            "b" => new LoginUser
+                {
+                    UserId = "b",
+                    UserName = "ゲスト",
+                    Roles = new[] { "Guest" }
+                },
+            _ => null
+        };
+        if (user != null)
+        {
+            await Auth.LoginAsync(user);
+            Navigation.NavigateTo("/");
+        }
+        StateHasChanged();
+    }
+
+    class LoginUserModel
+    {
+        [Required]
+        public string? UserId { get; set; }
+        public string? Password { get; set; }
+    }
+}

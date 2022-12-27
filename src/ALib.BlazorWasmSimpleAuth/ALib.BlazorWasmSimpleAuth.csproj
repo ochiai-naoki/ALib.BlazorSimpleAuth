@@ -1,9 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>ALib.BlazorWasmSimpleAuth</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>ochiai</Authors>
+		<PackageDescription>This package is simple auth on Blazor Server.</PackageDescription>
+		<RepositoryUrl>https://github.com/ochiai-naoki/ALib.BlazorSimpleAuth</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Blazored.SessionStorage" Version="2.2.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization">
+	    <Version>6.0.12</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization">
+			<Version>7.0.1</Version>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>

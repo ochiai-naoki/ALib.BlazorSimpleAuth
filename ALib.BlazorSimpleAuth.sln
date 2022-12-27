@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ALib.BlazorServerSimpleAuth
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWasmSample", "BlazorWasmSample", "{B2D1C726-21DE-4FB3-A6C2-8F1FCEAB1E4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmSample.Shared", "Sample\BlazorWasmSample\Shared\BlazorWasmSample.Shared.csproj", "{63CCF7A6-7C89-4FF0-AAC2-7CA4E20E7861}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmSample.Shared", "Sample\BlazorWasmSample\Shared\BlazorWasmSample.Shared.csproj", "{63CCF7A6-7C89-4FF0-AAC2-7CA4E20E7861}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmSample.Client", "Sample\BlazorWasmSample\Client\BlazorWasmSample.Client.csproj", "{F7E62EE5-7D17-470D-830C-B60620162E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmSample.Client", "Sample\BlazorWasmSample\Client\BlazorWasmSample.Client.csproj", "{F7E62EE5-7D17-470D-830C-B60620162E30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmSample.Server", "Sample\BlazorWasmSample\Server\BlazorWasmSample.Server.csproj", "{5C788DCE-F4EA-40B3-A710-AAF2CD1D152D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmSample.Server", "Sample\BlazorWasmSample\Server\BlazorWasmSample.Server.csproj", "{5C788DCE-F4EA-40B3-A710-AAF2CD1D152D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALib.BlazorWasmSimpleAuth", "src\ALib.BlazorWasmSimpleAuth\ALib.BlazorWasmSimpleAuth.csproj", "{5A922D53-2852-40B3-8204-6EC19D47AF1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ALib.BlazorWasmSimpleAuth", "src\ALib.BlazorWasmSimpleAuth\ALib.BlazorWasmSimpleAuth.csproj", "{5A922D53-2852-40B3-8204-6EC19D47AF1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

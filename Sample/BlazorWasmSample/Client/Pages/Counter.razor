@@ -5,6 +5,9 @@
 <MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
 <MudText Class="mb-4">Current count: @currentCount</MudText>
 <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+<AuthorizeView Roles="Admin">
+    <MudButton Color="Color.Secondary" Variant="Variant.Filled" @onclick="ResetCount">Reset</MudButton>
+</AuthorizeView>
 
 
 @code {
@@ -13,5 +16,10 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    private void ResetCount()
+    {
+        currentCount = 0;
     }
 }

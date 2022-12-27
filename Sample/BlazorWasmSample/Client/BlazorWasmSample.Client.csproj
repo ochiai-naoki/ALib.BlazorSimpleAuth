@@ -7,12 +7,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.12" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
 		<PackageReference Include="MudBlazor" Version="6.0.13" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\ALib.BlazorWasmSimpleAuth\ALib.BlazorWasmSimpleAuth.csproj" />
 		<ProjectReference Include="..\Shared\BlazorWasmSample.Shared.csproj" />
 	</ItemGroup>
 

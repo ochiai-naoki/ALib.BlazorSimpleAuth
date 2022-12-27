@@ -2,9 +2,12 @@
 
 Blazor では `AuthenticationStateProvider` を継承して認証と承認を行います。
 
-`ALib.BlazorServerSimpleAuth` では `AuthenticationStateProvider` を継承した `SimpleAuthenticationStateProvider` を使用します。
+Blazor Server では `AuthenticationStateProvider` を継承した `ALib.BlazorServerSimpleAuth.SimpleAuthenticationStateProvider` を使用します。
+Blazor Wasm では `ALib.BlazorWasmSimpleAuth.SimpleAuthenticationStateProvider` を使用します。
 
-`ALib.BlazorServerSimpleAuth` を使用した例として BlazorServerSample を参照してください。
+それぞれの使用方法等は Sample を参照してください。
+
+`ALib.BlazorServerSimpleAuth` を使用した例を Sample を元に説明します。
 
 *Program.cs*
 ```csharp
